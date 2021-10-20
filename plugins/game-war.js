@@ -25,7 +25,7 @@ let handler = async (m, { conn, usedPrefix, args, command }) => {
     if(m.sender == conn.war[m.chat][0].user){
       if (args[1] != "undefined" && !isNaN(conn.number(args[1]))){
         args[1] = conn.number(args[1])
-        if (args[1] < 1000000) return m.reply('*Minimal Rp. 1.000.000*')
+        if (args[1] < 20) return m.reply('*Minimal Rp. 20*')
         conn.war2[m.chat].money = args[1]
         return m.reply("*Berhasil menetapkan modal perang sebesar Rp. " + Number(args[1]).toLocaleString() + "*")
       }else {
@@ -38,7 +38,7 @@ let handler = async (m, { conn, usedPrefix, args, command }) => {
 
   // JOIN
   if (args[0] == "join"){
-    if (global.DATABASE.data.users[m.sender].money < 1000000) return m.reply("*Uang kamu minimal Rp. 1.000.000 untuk bermain game ini.*")
+    if (global.DATABASE.data.users[m.sender].money < 20) return m.reply("*Uang kamu minimal Rp. 20 untuk bermain game ini.*")
     // FIRST PLAYER
     if (!(m.chat in conn.war)) {
       conn.war2[m.chat] = {"war" : false, "turn" : 0, "time" : 0, "money" : 0}
